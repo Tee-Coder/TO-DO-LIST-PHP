@@ -22,19 +22,22 @@
   </head>
   <body>
     <header>
-      <h1>To-Do-List</h1>
+      <h1>Add a To-Do</h1>
       <form action="./index.php" method="POST">
         <label for="todoitem">
-          To-Do:
+          Enter a new task:
           <input type="text" name="todoitem" id="todoitem">
         </label>
-        <input type="submit" value="Add" id="add">
+        <input type="submit" value="Add to List" id="add">
+         <input type="submit" value="Reset" id="reset">
+
       <?php if ( !empty( $_SESSION['todotask'] ) ) : ?>
-        <h2>To-Do's:</h2>
+        <h2>Active To-Dos:</h2>
         <ul>
           <?php foreach ( $_SESSION['todotask'] as $T ) : ?>
             <li>
-              <input type="radio" name="<?php echo $T; ?>" id="<?php echo $T; ?>">
+              <input type="checkbox" name="<?php echo $T; ?>" id="<?php echo $T; ?>">
+
               <label for="<?php echo $T; ?>">
               <?php echo $T; ?>
             </li>
